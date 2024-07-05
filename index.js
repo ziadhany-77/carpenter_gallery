@@ -13,6 +13,4 @@ dotenv.config();
 connectToDB();
 bootstrap(app);
 
-app.get("/", (req, res) => res.send("Hello to alqasr"));
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
