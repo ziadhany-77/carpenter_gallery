@@ -20,12 +20,11 @@ import { Role } from "../../../../utils/enums.js";
 const router = Router();
 
 router.route("/add").post(
-  upload.single("cover"),
-  // .fields([
-  //   { name: "cover", maxCount: 1 },
-  //   { name: "images", maxCount: 6 },
-  //   { name: "videos", maxCount: 6 },
-  // ])
+  upload.fields([
+    { name: "cover", maxCount: 1 },
+    { name: "images", maxCount: 6 },
+    { name: "videos", maxCount: 6 },
+  ]),
   validate(addProductSchema),
   authenticate,
   authorize(Role.ADMIN),
