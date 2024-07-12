@@ -9,7 +9,7 @@ const app = express();
 
 dotenv.config();
 
-// configCloudinary();
+configCloudinary();
 connectToDB();
 bootstrap(app);
 

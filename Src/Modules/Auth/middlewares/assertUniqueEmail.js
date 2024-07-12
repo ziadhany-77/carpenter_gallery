@@ -1,4 +1,6 @@
-import { catchAsyncError } from "../../../../utils/errorHandelling.js";
+import AppError, {
+  catchAsyncError,
+} from "../../../../utils/errorHandelling.js";
 import userModel from "../../Users/Models/user.model.js";
 
 export const assertUniqueEmail = catchAsyncError(async (req, res, next) => {
