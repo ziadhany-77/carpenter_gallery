@@ -4,8 +4,7 @@ export const Role = {
 };
 
 export const productType = {
-  DOORS: "Doors",
-  WINDOWS: "Windows",
+  DOORS_AND_WINDOWS: "Doors_And_Windows",
   FURNITURE: "Furniture",
   RENOVATION: "Renovation",
 };

@@ -5,9 +5,8 @@ export const addProductSchema = Joi.object({
   body: {
     name: Joi.string().min(5).max(15).trim().required(),
     type: Joi.string().valid(
-      productType.DOORS,
+      productType.DOORS_AND_WINDOWS,
       productType.FURNITURE,
-      productType.WINDOWS,
       productType.RENOVATION
     ),
   },
@@ -20,9 +19,8 @@ export const getProductsSchema = Joi.object({
   body: {},
   params: {
     type: Joi.string().valid(
-      productType.DOORS,
+      productType.DOORS_AND_WINDOWS,
       productType.FURNITURE,
-      productType.WINDOWS,
       productType.RENOVATION
     ),
   },

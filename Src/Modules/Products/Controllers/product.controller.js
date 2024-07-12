@@ -1,8 +1,8 @@
 import AppError, {
   catchAsyncError,
 } from "../../../../utils/errorHandelling.js";
-import filesWithProductModel from "../Models/product.files.model.js";
-import { createImage } from "../../files/utils/files.utils.js";
+// import filesWithProductModel from "../Models/product.files.model.js";
+// import { createImage } from "../../files/utils/files.utils.js";
 import productModel from "../Models/product.model.js";
 import { ApiFeatures } from "../../../../utils/apiFeatures.js";
 
