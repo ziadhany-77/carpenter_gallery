@@ -1,6 +1,8 @@
 import bcrybt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { catchAsyncError } from "../../../../utils/errorHandelling.js";
+import AppError, {
+  catchAsyncError,
+} from "../../../../utils/errorHandelling.js";
 import userModel from "../../Users/Models/user.model.js";
 
 export const signUp = catchAsyncError(async (req, res) => {
