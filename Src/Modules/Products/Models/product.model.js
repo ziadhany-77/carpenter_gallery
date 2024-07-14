@@ -3,18 +3,11 @@ import { productType } from "../../../../utils/enums.js";
 
 const productSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      minLength: 5,
-      maxLength: 15,
-      required: true,
-    },
     type: {
       type: String,
       enums: [
-        productType.DOORS,
+        productType.DOORS_AND_WINDOWS,
         productType.FURNITURE,
-        productType.WINDOWS,
         productType.RENOVATION,
       ],
       required: true,
