@@ -28,13 +28,12 @@ export const signUp = catchAsyncError(async (req, res) => {
 export const signIn = catchAsyncError(async (req, res) => {
   const { email, password } = req.body;
   const user = await userModel.findOne({ email });
-
   if (!user || !bcrybt.compareSync(password, user.password))
     throw new AppError("Wrong email or password");
 
-  const { userName, phoneNumber, role, _id: id } = user;
+  const { userName, role, _id: id } = user;
   const token = jwt.sign(
-    { userName, role, id, phoneNumber, email },
+    { userName, role, id, email },
     process.env.TOKEN_SECRET
   );
   res.json({ token });
