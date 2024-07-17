@@ -3,8 +3,8 @@ import { createImage } from "../../files/utils/files.utils.js";
 
 export const attachCoverImage = () =>
   catchAsyncError(async (req, res, next) => {
-    if (!req.files?.cover) return next();
-    const image = await createImage(req.files.cover[0].path);
+    if (!req.file) return next();
+    const image = await createImage(req.file.path);
     req.body.cover = image._id;
     next();
   });

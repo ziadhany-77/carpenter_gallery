@@ -11,7 +11,7 @@ export const addProductSchema = Joi.object({
   },
   params: {},
   query: {},
-  files: Joi.object().required(),
+  file: Joi.object().required(),
 });
 
 export const getProductsSchema = Joi.object({

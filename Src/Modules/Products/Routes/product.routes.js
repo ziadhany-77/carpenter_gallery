@@ -21,7 +21,7 @@ const router = Router();
 router
   .route("/add")
   .post(
-    upload.fields([{ name: "cover", maxCount: 1 }]),
+    upload.single("cover"),
     validate(addProductSchema),
     authenticate,
     authorize(Role.ADMIN),
