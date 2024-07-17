@@ -13,10 +13,7 @@ export const addProduct = catchAsyncError(async (req, res) => {
 
 export const getProducts = catchAsyncError(async (req, res) => {
   const { type } = req.params;
-  const apiFeatures = new ApiFeatures(
-    productModel.find({ type }),
-    req.query
-  ).paginate(10);
+  const apiFeatures = new ApiFeatures(productModel.find({ type }), req.query);
   const products = await apiFeatures.query;
   if (!products) throw new AppError("products will be added soon", 400);
   res.json({ products });
