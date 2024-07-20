@@ -5,6 +5,7 @@ import cors from "cors";
 
 const bootstrap = (app) => {
   app.use(cors({ credentials: true }));
+
   app.use(express.json());
 
   app.use("/api/v1", v1Router);

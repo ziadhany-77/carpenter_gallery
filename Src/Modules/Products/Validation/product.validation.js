@@ -25,7 +25,7 @@ export const getProductsSchema = Joi.object({
   },
   query: {},
 });
-export const getProductSchema = Joi.object({
+export const deleteProductSchema = Joi.object({
   body: {},
   params: {
     productId: Joi.string().hex().length(24),
