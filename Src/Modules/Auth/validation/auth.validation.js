@@ -12,6 +12,7 @@ export const signupSchema = Joi.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     ),
     phoneNumber: Joi.string().max(15).trim().required(),
+    role: Joi.string().valid(Role.ADMIN, Role.USER),
   },
   params: {},
   query: {},

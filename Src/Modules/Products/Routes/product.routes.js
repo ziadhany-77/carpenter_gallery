@@ -49,6 +49,8 @@ router
   .post(
     upload.single("cover"),
     validate(addProductSchema),
+    authenticate,
+    authorize(Role.ADMIN),
     attachCoverImageAWS(),
     addProductAWS
   );
