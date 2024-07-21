@@ -8,5 +8,8 @@ const v1Router = Router();
 v1Router.use("/auth", authRouter);
 v1Router.use("/products", productRouter);
 v1Router.use("/test", testRouter);
+v1Router.use((req, res) => {
+  res.json({ message: "test" });
+});
 
 export default v1Router;
