@@ -10,6 +10,12 @@ export const addProduct = catchAsyncError(async (req, res) => {
     message: `product added `,
   });
 });
+export const addProductAWS = catchAsyncError(async (req, res) => {
+  const product = await productModel.create(req.body);
+  res.status(201).json({
+    message: `product added: ${product}`,
+  });
+});
 
 export const getProducts = catchAsyncError(async (req, res) => {
   const { type } = req.params;

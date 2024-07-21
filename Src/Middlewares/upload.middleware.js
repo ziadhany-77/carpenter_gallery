@@ -1,7 +1,7 @@
 import multer from "multer";
 import AppError from "../../utils/errorHandelling.js";
 
-const storage = multer.diskStorage({});
+const storage = multer.memoryStorage();
 
 function fileFilter(req, file, cb) {
   if (

@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { attachCoverImage } from "../Middlewares/product.middleware.js";
+import {
+  attachCoverImage,
+  attachCoverImageAWS,
+} from "../Middlewares/product.middleware.js";
 import { authenticate } from "../../Auth/middlewares/authenticate.js";
 import validate from "../../../Middlewares/validation.middleware.js";
 import { upload } from "../../../Middlewares/upload.middleware.js";
@@ -12,22 +15,23 @@ import {
 } from "../Validation/product.validation.js";
 import {
   addProduct,
+  addProductAWS,
   deleteProduct,
   getProducts,
 } from "../Controllers/product.controller.js";
 
 const router = Router();
 
-router
-  .route("/add")
-  .post(
-    upload.single("cover"),
-    validate(addProductSchema),
-    authenticate,
-    authorize(Role.ADMIN),
-    attachCoverImage(),
-    addProduct
-  );
+// router
+//   .route("/add")
+//   .post(
+//     upload.single("cover"),
+//     validate(addProductSchema),
+//     authenticate,
+//     authorize(Role.ADMIN),
+//     attachCoverImage(),
+//     addProduct
+//   );
 
 router.route("/:type").get(validate(getProductsSchema), getProducts);
 
@@ -38,6 +42,15 @@ router
     authenticate,
     authorize(Role.ADMIN),
     deleteProduct
+  );
+
+router
+  .route("/add")
+  .post(
+    upload.single("cover"),
+    validate(addProductSchema),
+    attachCoverImageAWS(),
+    addProductAWS
   );
 
 export default router;
