@@ -8,6 +8,10 @@ const bootstrap = (app) => {
 
   app.use(express.json());
 
+  app.get("/", (req, res) => {
+    res.json({ message: "test Http" });
+  });
+
   app.use("/api/v1", v1Router);
 
   app.all("*", (req, res, next) => {
